@@ -9,7 +9,7 @@ export class Device {
 	routerCode: number;
 	qos:bool;
 	comment:string;*/
-	
+
 	position: number;
 	name: string;
 	weight: number;

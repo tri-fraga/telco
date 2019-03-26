@@ -1,10 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="header">
+  <img src="../assets/logo.png" alt='Tricom'>
   <h1>
     {{title}}
   </h1>
 </div>
 
 
-<app-devices-view (deviceSelected)='setDevice($event)' (deviceDeleted)='deleteDevice($event)'></app-devices-view>
-<app-devices-model [device]="selectedDevice"></app-devices-model>
+<div fxLayout="row" fxLayoutGap="3%">
+  <app-devices-view fxFlex="64%" (deviceSelected)='setDevice($event)' (deviceDeleted)='deleteDevice($event)'></app-devices-view>
+  <app-devices-model fxFlex="33%" [device]="selectedDevice"></app-devices-model>
+</div>
+
+<app-messages></app-messages>

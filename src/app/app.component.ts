@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { Device } from './device';
 
 @Component({
@@ -8,8 +9,10 @@ import { Device } from './device';
 })
 
 export class AppComponent {
-  title = 'Telecom';
+  title = 'TRICOM';
   selectedDevice: Device;
+
+  constructor() {}
 
   setDevice(device: Device): void {
     this.selectedDevice = device;

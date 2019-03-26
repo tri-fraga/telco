@@ -12,13 +12,6 @@ import { Device } from '../device';
 export class DevicesModelComponent implements OnInit {
 	@Input() device: Device;
 
-   /* = {
-		position: 1,
-		name: 'Hydrogen',
-		weight: 1.0079,
-		symbol: 'H'
-	};*/
-
   constructor() { }
 
   ngOnInit() {
