@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BrowserModule, Title }  from '@angular/platform-browser';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { DeviceService }  from '../device.service';
@@ -20,11 +21,13 @@ export class DeviceViewComponent implements OnInit {
     private dialog : MatDialog,
     private route: ActivatedRoute,
     private router: Router,
+    private titleService: Title,
     private deviceService: DeviceService
   ) {}
 
   ngOnInit() {
     this.getDeviceByParam();
+    this.titleService.setTitle("Devices | TRICOM");
   }
 
   getDeviceByParam(): void {

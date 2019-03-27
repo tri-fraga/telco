@@ -33,13 +33,17 @@ export class DeviceService {
     return device;
   }
 
-  selectDeviceById(id: number) {
+  selectDeviceById(id: number) : void {
+    if(!id) {
+      this.unselectDevice();
+      return;
+    }
     this.getDevice(id)
       .subscribe(device => this.selectDevice(device));
   }
 
   selectDevice(device: Device) : void {
-    if(device == null) {
+    if(!device) {
       this.unselectDevice();
       return;
     }

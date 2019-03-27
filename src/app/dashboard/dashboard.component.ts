@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrowserModule, Title }  from '@angular/platform-browser';
 
 import { Device } from '../device/device';
 import { DeviceService } from '../device/device.service';
@@ -10,9 +11,14 @@ import { DeviceService } from '../device/device.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private deviceService : DeviceService) { }
+  constructor(
+    private deviceService : DeviceService,
+    private titleService: Title
+  )
+  {}
 
   ngOnInit() {
+    this.titleService.setTitle("Dashboard | TRICOM");
   }
 
 }
