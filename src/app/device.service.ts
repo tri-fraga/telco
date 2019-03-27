@@ -33,6 +33,7 @@ export class DeviceService {
   }
 
   saveDevice(device: Device) : void {
+    this.messageService.show("Saved");
     this.messageService.add('DeviceService: saved device ' + device.name);
     //TODO: Implement
   }

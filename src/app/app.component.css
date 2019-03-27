@@ -1,9 +1,16 @@
 .header {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 1000;
+	border-top: 3px solid #1d63af;
+	border-bottom: 1px solid #ccc;
 	color: #1d63af;
+	background-color: #fff;
 	padding-left: 0;
 }
 
-.title {
+.header .title {
 	margin: 0 1em;
 }
 
@@ -32,5 +39,6 @@
 }
 
 .mat-sidenav-content {
-	padding: 2em;
+	padding-top: 36px;
+  min-height: calc(100vh - 100px);
 }

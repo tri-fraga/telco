@@ -18,6 +18,7 @@ import { MessagesComponent } from './messages/messages.component';
     MaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MessagesComponent]
 })
 export class AppModule { }

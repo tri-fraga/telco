@@ -1,14 +1,9 @@
-<div *ngIf="messageService.messages.length">
-
-
-  <mat-list dense>
-    <div matSubheader>
-      <h3>Messages</h3>
-      <button mat-icon-button color="accent" (click)="messageService.clear()">
-        <mat-icon aria-label="Delete">delete</mat-icon>
-      </button>
-    </div>
-    <mat-list-item *ngFor="let message of messageService.messages">{{message}}</mat-list-item>
-  </mat-list>
-
-</div>
+<mat-list dense>
+  <div matSubheader>
+    <h3>Message Log</h3>
+    <button *ngIf="messageService.messages.length" mat-icon-button color="accent" (click)="clearMessages()">
+      <mat-icon aria-label="Delete">delete</mat-icon>
+    </button>
+  </div>
+  <mat-list-item *ngFor="let message of messageService.messages">{{message}}</mat-list-item>
+</mat-list>

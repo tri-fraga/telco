@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { MatSnackBar, MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
 import { Device } from './device';
 
 @Component({
@@ -11,5 +14,22 @@ import { Device } from './device';
 export class AppComponent {
   title = 'TRICOM';
   debug = true;
-  constructor() {}
+  constructor(private messageService: MessageService, private snackBar: MatSnackBar, private bottomSheet: MatBottomSheet) {
+
+    messageService.snackMessage$.subscribe(
+      message => {
+        this.showSnackbar(message);
+    });
+
+  }
+
+  showSnackbar(message : string) : void {
+    let snackBarRef = this.snackBar.open(message, "Dismiss", {
+      duration: 3000
+    });
+  }
+
+  showMessages() : void {
+    this.bottomSheet.open(MessagesComponent);
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+
 import { MessageService } from '../message.service';
 
 @Component({
@@ -8,7 +10,16 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService) {}
+  constructor(private messageService: MessageService,
+    private bottomSheetRef: MatBottomSheetRef<MessagesComponent>) {
+
+  }
+
+  clearMessages(event: MouseEvent): void {
+    this.bottomSheetRef.dismiss();
+    this.messageService.clear();
+    event.preventDefault();
+  }
 
   ngOnInit() {
   }

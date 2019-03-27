@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter   } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter   } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 import { Device } from '../device';
@@ -14,10 +14,16 @@ export class DevicesViewComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'more'];
   dataSource: MatTableDataSource<Device>;
   devices: Device[];
+  selectedDevice: Device;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private deviceService : DeviceService) { }
+  constructor(private deviceService : DeviceService) {
+    deviceService.selectedDevice$.subscribe(
+      device => {
+        this.selectedDevice = device;
+    });
+  }
 
   ngOnInit() {
     this.getDevices();
@@ -31,7 +37,8 @@ export class DevicesViewComponent implements OnInit {
   }
 
   selectDevice(device: Device) : void {
-    this.deviceService.selectDevice(device);
+    this.selectedDevice = device;
+    this.deviceService.selectDevice(this.selectedDevice);
   }
 
   deleteDevice(device: Device) : void {
