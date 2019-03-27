@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { MatSnackBar, MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { MatSnackBar, MatBottomSheet } from '@angular/material';
 
 import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
-import { Device } from './device';
 
 @Component({
   selector: 'app-root',

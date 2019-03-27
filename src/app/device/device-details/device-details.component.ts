@@ -4,12 +4,12 @@ import { Device } from '../device';
 import { DeviceService } from '../device.service';
 
 @Component({
-  selector: 'app-devices-model',
-  templateUrl: './devices-model.component.html',
-  styleUrls: ['./devices-model.component.css']
+  selector: 'app-device-details',
+  templateUrl: './device-details.component.html',
+  styleUrls: ['./device-details.component.css']
 })
 
-export class DevicesModelComponent implements OnInit {
+export class DeviceDetailsComponent implements OnInit {
 	device: Device;
 
   constructor(private deviceService : DeviceService) {

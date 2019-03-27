@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
 
-import { MessageService } from './message.service';
+import { MessageService } from '../message.service';
 import { Device } from './device';
 import { DEVICES } from './devices-mock';
 
