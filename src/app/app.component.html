@@ -18,14 +18,16 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="push">
 
-    <label>Nav</label>
+    <mat-list>
+       <a mat-list-item routerLinkActive="active" routerLink="/dashboard" (click)="sidenav.close()">Dashboard</a>
+       <a mat-list-item routerLinkActive="active" routerLink="/devices" (click)="sidenav.close()">Devices</a>
+       <a mat-list-item routerLinkActive="active" routerLink="/locations" (click)="sidenav.close()">Locations</a>
+    </mat-list>
 
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <app-device-view></app-device-view>
-
-    <!--(click)="debug=!debug"-app-messages *ngIf="debug"></app-messages-->
+    <router-outlet></router-outlet>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

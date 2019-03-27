@@ -38,6 +38,17 @@
 		width: 250px;
 }
 
+.mat-sidenav a {
+	text-decoration: none;
+}
+
+.mat-sidenav a:hover,
+.mat-sidenav a.active {
+	color: #fff;
+	background-color: #1d63af;
+}
+
+
 .mat-sidenav-content {
 	padding-top: 36px;
   min-height: calc(100vh - 100px);

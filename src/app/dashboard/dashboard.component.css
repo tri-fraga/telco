@@ -1,0 +1,12 @@
+.dashboard {
+  text-align: center;
+}
+
+.dashboard button {
+  min-height: 200px;
+  min-width: 300px;
+  margin: 1em;
+
+  font-size: 2em;
+  color: #1d63af;
+}

@@ -14,16 +14,18 @@ import {
   MatSidenavModule,
   MatToolbarModule,
   MatSnackBarModule,
-  MatBottomSheetModule
+  MatBottomSheetModule,
+  MatGridListModule,
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
   declarations: [],
   imports: [
-    FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
 
     MatButtonModule,
     MatIconModule,
@@ -34,13 +36,15 @@ import {
     MatSidenavModule,
     MatToolbarModule,
     MatSnackBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatGridListModule,
+    MatDialogModule
   ],
   exports: [
-    FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
 
     MatButtonModule,
     MatIconModule,
@@ -51,7 +55,9 @@ import {
     MatSidenavModule,
     MatToolbarModule,
     MatSnackBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatGridListModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

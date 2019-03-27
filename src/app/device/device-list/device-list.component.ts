@@ -45,4 +45,8 @@ export class DeviceListComponent implements OnInit {
     this.deviceService.deleteDevice(device);
   }
 
+  getDeviceDirectLink(device: Device) : void {
+    console.log("/device/" + device.position)
+  }
+
 }

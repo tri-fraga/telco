@@ -1,4 +1,5 @@
 <div>
+  <h4>Devices</h4>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -23,10 +24,13 @@
     <ng-container matColumnDef="more">
       <th mat-header-cell *matHeaderCellDef> More </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="primary" (click)="selectDevice(element)">
+        <button mat-icon-button (click)="selectDevice(element)">
           <mat-icon aria-label="Edit">launch</mat-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="deleteDevice(element)">
+        <button mat-icon-button (click)="getDeviceDirectLink(element)">
+          <mat-icon aria-label="Edit">attach_file</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteDevice(element)">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </td>

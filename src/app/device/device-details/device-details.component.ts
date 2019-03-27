@@ -13,6 +13,7 @@ export class DeviceDetailsComponent implements OnInit {
 	device: Device;
 
   constructor(private deviceService : DeviceService) {
+    //this.device = new Device();
     deviceService.selectedDevice$.subscribe(
       device => {
         this.device = device;
@@ -20,7 +21,7 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.device = new Device();
+
   }
 
   clearDevice() : void {
@@ -28,7 +29,7 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   saveDevice() : void {
-    this.deviceService.saveDevice(this.device);
+    this.deviceService.updateDevice(this.device);
   }
 
 }
