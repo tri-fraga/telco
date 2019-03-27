@@ -31,7 +31,7 @@ export class DeviceViewComponent implements OnInit {
   }
 
   getDeviceByParam(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.deviceService.selectDeviceById(id);
   }
 

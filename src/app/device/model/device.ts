@@ -16,7 +16,7 @@ import { IPVersion } from './iPVersion';
 export class Device {
     deviceId?: string;
     deviceType?: string;
-    deviceNumber?: string;
+    deviceNumber?: number;
     hostName?: string;
     domainName?: string;
     adminState?: AdministrativeState;

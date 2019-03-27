@@ -46,7 +46,7 @@ export class DeviceListComponent implements OnInit {
   }
 
   getDeviceDirectLink(device: Device) : void {
-    console.log("/device/" + device.position)
+    console.log("/device/" + device.deviceId)
   }
 
 }

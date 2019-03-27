@@ -27,13 +27,13 @@ export class DeviceService {
     return 22;
   }
 
-  getDevice(id: number) : Observable<Device> {
-    var device = of(DEVICES.find(device => device.deviceId === id));
+  getDevice(id: string) : Observable<Device> {
+    var device = of(DEVICES.find(device => device.deviceId == id));
     this.messageService.add(`DeviceService: fetched device id=${id}`);
     return device;
   }
 
-  selectDeviceById(id: number) : void {
+  selectDeviceById(id: string) : void {
     if(!id) {
       this.unselectDevice();
       return;

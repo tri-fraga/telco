@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule, Title }  from '@angular/platform-browser';
 
-import { Device } from '../device/device';
+import { Device } from '../device/model/device';
 import { DeviceService } from '../device/device.service';
 
 @Component({
