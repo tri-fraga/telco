@@ -1,12 +1,12 @@
 <div fxLayout="column">
   <mat-form-field>
-    <input matInput type="number" [ngModel]="device?.position" (ngModelChange)="device.position = $event" placeholder="Position"/>
+    <input matInput [ngModel]="device?.position" (ngModelChange)="device.position = $event" type="number"  placeholder="Position"/>
   </mat-form-field>
   <mat-form-field>
     <input matInput [ngModel]="device?.name" (ngModelChange)="device.name = $event" placeholder="Name"/>
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="number" [ngModel]="device?.weight" (ngModelChange)="device.weight = $event" placeholder="Weight"/>
+    <input matInput [ngModel]="device?.weight" (ngModelChange)="device.weight = $event" type="number" placeholder="Weight"/>
   </mat-form-field>
   <mat-form-field>
     <input matInput [ngModel]="device?.symbol" (ngModelChange)="device.symbol = $event" placeholder="Symbol"/>

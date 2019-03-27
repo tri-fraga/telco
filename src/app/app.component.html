@@ -1,15 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="header">
-  <img src="../assets/logo.png" alt='Tricom'>
-  <h1>
-    {{title}}
-  </h1>
-</div>
 
 
-<div fxLayout="row" fxLayoutGap="3%">
-  <app-devices-view fxFlex="64%" (deviceSelected)='setDevice($event)' (deviceDeleted)='deleteDevice($event)'></app-devices-view>
-  <app-devices-model fxFlex="33%" [device]="selectedDevice"></app-devices-model>
-</div>
+<mat-toolbar class="header" color="accent">
+  <button class="hamburger" mat-button (click)="sidenav.toggle()">
+    <mat-icon aria-label="Menu">menu</mat-icon>
+  </button>
 
-<app-messages></app-messages>
+  <div class="title">
+    <img src="../assets/logo.png" alt='Tricom'>
+    <h1>
+      {{title}}
+    </h1>
+  </div>
+
+  <button class="debug" mat-button (click)="debug=!debug">
+    <mat-icon aria-label="Debug Mode">bug_report</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push">
+
+    <label>Nav</label>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <div fxLayout="row" fxLayoutGap="3%">
+      <app-devices-view fxFlex="64%"></app-devices-view>
+      <app-devices-model fxFlex="33%"></app-devices-model>
+    </div>
+
+    <app-messages *ngIf="debug"></app-messages>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

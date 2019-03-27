@@ -1,20 +1,36 @@
-body {
-
+.header {
+	color: #1d63af;
+	padding-left: 0;
 }
 
-.header {
-	width: 100%;
-	color: #1d63af;
-	margin-bottom: 1em;
+.title {
+	margin: 0 1em;
 }
 
 .header img {
 	display: inline-block;
-	width: 80px;
+	width: 40px;
 	height: auto;
+	vertical-align: middle;
 }
 
 .header h1 {
-  vertical-align: top;
+  vertical-align: middle;
 	display: inline-block;
+}
+
+.header button {
+	height: 100%;
+}
+
+.mat-drawer-container {
+	background-color: #fff;
+}
+
+.mat-sidenav {
+		width: 250px;
+}
+
+.mat-sidenav-content {
+	padding: 2em;
 }

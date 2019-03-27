@@ -17,11 +17,6 @@ export class DevicesViewComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  @Output() deviceSelected = new EventEmitter<Device>();
-  @Output() deviceDeleted = new EventEmitter<Device>();
-
-  selectedDevice: Device;
-
   constructor(private deviceService : DeviceService) { }
 
   ngOnInit() {
@@ -36,12 +31,11 @@ export class DevicesViewComponent implements OnInit {
   }
 
   selectDevice(device: Device) : void {
-    this.selectedDevice = device;
-    this.deviceSelected.emit(this.selectedDevice);
+    this.deviceService.selectDevice(device);
   }
 
   deleteDevice(device: Device) : void {
-    this.deviceDeleted.emit(device);
+    this.deviceService.deleteDevice(device);
   }
 
 }

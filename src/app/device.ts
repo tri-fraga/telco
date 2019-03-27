@@ -14,4 +14,14 @@ export class Device {
 	name: string;
 	weight: number;
 	symbol: string
+
+	public constructor(fields?: {
+			position?: number,
+			name?: string,
+			weight?: number,
+			symbol?: string
+	}) {
+		if (fields) Object.assign(this, fields);
+	}
+
 }

@@ -4,12 +4,5 @@
 
 html, body {
 	font-family: Roboto, "Helvetica Neue",sans-serif;
-}
-
-html {
-	border-top: 3px solid #1d63af;
-}
-
-body {
-	padding: 0 2em;
+	margin: 0;
 }

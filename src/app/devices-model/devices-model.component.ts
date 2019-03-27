@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { Device } from '../device';
-
-
+import { DeviceService } from '../device.service';
 
 @Component({
   selector: 'app-devices-model',
@@ -10,24 +10,25 @@ import { Device } from '../device';
 })
 
 export class DevicesModelComponent implements OnInit {
-	@Input() device: Device;
+	device: Device;
 
-  constructor() { }
+  constructor(private deviceService : DeviceService) {
+    deviceService.selectedDevice$.subscribe(
+      device => {
+        this.device = device;
+    });
+  }
 
   ngOnInit() {
+    this.device = new Device();
   }
 
-  clearDevice() {
-    this.device = {
-      position: null,
-      name: '',
-  		weight: null,
-  		symbol: ''
-    };
+  clearDevice() : void {
+    this.deviceService.unselectDevice();
   }
 
-  saveDevice() {
-
+  saveDevice() : void {
+    this.deviceService.saveDevice(this.device);
   }
 
 }

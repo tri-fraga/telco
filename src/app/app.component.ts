@@ -10,17 +10,6 @@ import { Device } from './device';
 
 export class AppComponent {
   title = 'TRICOM';
-  selectedDevice: Device;
-
+  debug = true;
   constructor() {}
-
-  setDevice(device: Device): void {
-    this.selectedDevice = device;
-    console.log('Device selected ' + device.name);
-  }
-
-  deleteDevice(device: Device): void {
-    console.log('Device deleted ' + device.name);
-    //return false;
-  }
 }
