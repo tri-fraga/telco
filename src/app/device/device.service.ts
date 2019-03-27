@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
 
 import { MessageService } from '../message.service';
-import { Device } from './device';
+import { Device } from './model/device';
 import { DEVICES } from './devices-mock';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class DeviceService {
   }
 
   getDevice(id: number) : Observable<Device> {
-    var device = of(DEVICES.find(device => device.position === id));
+    var device = of(DEVICES.find(device => device.deviceId === id));
     this.messageService.add(`DeviceService: fetched device id=${id}`);
     return device;
   }
@@ -49,7 +49,7 @@ export class DeviceService {
     }
     this.selectedDevice = device;
     this.selectedDeviceSource.next(this.selectedDevice);
-    this.messageService.add('DeviceService: selected device ' + this.selectedDevice.name);
+    this.messageService.add('DeviceService: selected device ' + this.selectedDevice.deviceId);
   }
 
   unselectDevice() : void {
@@ -59,17 +59,17 @@ export class DeviceService {
 
   addDevice(device: Device) : void {
     this.messageService.show("Added Device");
-    this.messageService.add('DeviceService: added device ' + device.name);
+    this.messageService.add('DeviceService: added device ' + device.deviceId);
   }
 
   updateDevice(device: Device) : void {
     this.messageService.show("Updated");
-    this.messageService.add('DeviceService: updated device ' + device.name);
+    this.messageService.add('DeviceService: updated device ' + device.deviceId);
     //TODO: Implement
   }
 
   deleteDevice(device: Device) : void {
-    this.messageService.add('DeviceService: deleted device ' + device.name);
+    this.messageService.add('DeviceService: deleted device ' + device.deviceId);
     //TODO: Implement
   }
 }

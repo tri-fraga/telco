@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, EventEmitter   } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-import { Device } from '../device';
+import { Device } from '../model/device';
 import { DeviceService } from '../device.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { DeviceService } from '../device.service';
 })
 
 export class DeviceListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'more'];
+  displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'more'];
   dataSource: MatTableDataSource<Device>;
   devices: Device[];
   selectedDevice: Device;

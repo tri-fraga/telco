@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Device } from '../device';
+import { Device } from '../model/device';
+import { IPVersion } from '../model/iPVersion';
+import { AdministrativeState } from '../model/administrativeState';
 import { DeviceService } from '../device.service';
 
 @Component({
@@ -21,7 +23,15 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(Object.keys(IPVersion));
+  }
 
+  IPVersionKeys() : string[] {
+    return Object.keys(IPVersion);
+  }
+
+  AdminStateKeys() : string[] {
+    return Object.keys(AdministrativeState);
   }
 
   clearDevice() : void {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { Device } from '../device';
+import { Device } from '../model/device';
 
 @Component({
   selector: 'app-device-add-dialog',

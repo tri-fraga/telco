@@ -1,22 +1,51 @@
 <h4>Device Details</h4>
 <div fxLayout="column">
   <mat-form-field>
-    <input matInput [(ngModel)]="device.position" type="number"  placeholder="Position"/>
+    <input matInput [(ngModel)]="device.hostName" id="device.hostName" placeholder="Position"/>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="device.name" placeholder="Name"/>
+    <input matInput [(ngModel)]="device.domainName" id="device.domainName" placeholder="Domain Name"/>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="device.weight" type="number" placeholder="Weight"/>
+    <mat-label>Administrative State</mat-label>
+    <select matNativeControl [(ngModel)]="device.adminState" name="device.adminState">
+      <option value="" selected></option>
+      <option *ngFor="let state of AdminStateKeys()" [value]="state">{{state}}</option>
+    </select>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="device.symbol" placeholder="Symbol"/>
+    <mat-label>IP Version Activated</mat-label>
+    <select matNativeControl [(ngModel)]="device.ipVersionActivated" name="device.ipVersionActivated">
+      <option value="" selected></option>
+      <option *ngFor="let version of IPVersionKeys()" [value]="version">{{version}}</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>IP Version Supported</mat-label>
+    <select matNativeControl [(ngModel)]="device.ipVersionSupported" name="device.ipVersionSupported">
+      <option value="" selected></option>
+      <option *ngFor="let version of IPVersionKeys()" [value]="version">{{version}}</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="device.routerCode" id="device.routerCode" placeholder="Router Code"/>
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="device.qoS" id="device.qoS">QoS Enabled</mat-checkbox>
+  <mat-form-field>
+    <input matInput [(ngModel)]="device.locationId" id="device.locationId" placeholder="Location ID"/>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matNativeControl [(ngModel)]="device.comment" id="device.comment" placeholder="Comment" style="height: 100px;"></textarea>
   </mat-form-field>
 </div>
 <div gdAuto="column" >
-  <div dir="rtl" fxLayoutAlign="flex-end center">
+  <div fxLayoutAlign="end center">
     <button  mat-raised-button color="primary" (click)="saveDevice()">
       Save
+    </button>
+    <div fxFlex></div>
+    <button  mat-raised-button (click)="clearDevice()">
+      Cancel
     </button>
   </div>
 </div>
