@@ -5,12 +5,12 @@ import { Device } from '../device';
 import { DeviceService } from '../device.service';
 
 @Component({
-  selector: 'app-devices-view',
-  templateUrl: './devices-view.component.html',
-  styleUrls: ['./devices-view.component.css']
+  selector: 'app-device-list',
+  templateUrl: './device-list.component.html',
+  styleUrls: ['./device-list.component.css']
 })
 
-export class DevicesViewComponent implements OnInit {
+export class DeviceListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'more'];
   dataSource: MatTableDataSource<Device>;
   devices: Device[];

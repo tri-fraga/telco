@@ -3,17 +3,20 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
-import { DevicesViewComponent } from './device/devices-view/devices-view.component';
-import { DeviceDetailsComponent } from './device/device-details/device-details.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+
+import { DeviceListComponent } from './device/device-list/device-list.component';
+import { DeviceDetailsComponent } from './device/device-details/device-details.component';
+import { DeviceViewComponent } from './device/device-view/device-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DevicesViewComponent,
+    MessagesComponent,
+    DeviceViewComponent,
+    DeviceListComponent,
     DeviceDetailsComponent,
-    MessagesComponent
   ],
   imports: [
     MaterialModule,
