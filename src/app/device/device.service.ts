@@ -1,36 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from '../message.service';
 import { Device } from './model/device';
-import { DEVICES } from './devices-mock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceService {
 
+  private deviceUrl = 'api/devices';
   private selectedDeviceSource = new Subject<Device>();
   selectedDevice$ = this.selectedDeviceSource.asObservable();
   selectedDevice: Device;
 
-  constructor(private messageService: MessageService) {
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) {
     this.unselectDevice();
-  }
-
-  getDevices(): Observable<Device[]> {
-    this.messageService.add('DeviceService: fetched device list');
-    return of(DEVICES);
-  }
-
-  getDeviceCount() : number {
-    return 22;
-  }
-
-  getDevice(id: string) : Observable<Device> {
-    var device = of(DEVICES.find(device => device.deviceId == id));
-    this.messageService.add(`DeviceService: fetched device id=${id}`);
-    return device;
   }
 
   selectDeviceById(id: string) : void {
@@ -49,7 +38,7 @@ export class DeviceService {
     }
     this.selectedDevice = device;
     this.selectedDeviceSource.next(this.selectedDevice);
-    this.messageService.add('DeviceService: selected device ' + this.selectedDevice.deviceId);
+    this.log('selected device ' + this.selectedDevice.deviceId);
   }
 
   unselectDevice() : void {
@@ -57,19 +46,51 @@ export class DeviceService {
     this.selectedDeviceSource.next(this.selectedDevice);
   }
 
+  getDeviceCount() : number {
+    return 23;
+  }
+
+  getDevices(): Observable<Device[]> {
+    return this.http.get<Device[]>(this.deviceUrl).pipe(
+      tap(_ => this.log('fetched devices')),
+      catchError(this.handleError<Device[]>('getDevices', []))
+    );
+  }
+
+  getDevice(id: string) : Observable<Device> {
+    const url = `${this.deviceUrl}/${id}`;
+    return this.http.get<Device>(url).pipe(
+      tap(_ => this.log(`fetched device id=${id}`)),
+      catchError(this.handleError<Device>(`getDevice id=${id}`))
+    );
+  }
+
   addDevice(device: Device) : void {
-    this.messageService.show("Added Device");
-    this.messageService.add('DeviceService: added device ' + device.deviceId);
+    this.messageService.show('Added Device');
+    this.log('Added device ' + device.deviceId);
   }
 
   updateDevice(device: Device) : void {
-    this.messageService.show("Updated");
-    this.messageService.add('DeviceService: updated device ' + device.deviceId);
+    this.messageService.show('Updated Device');
+    this.log(' Updated device ' + device.deviceId);
     //TODO: Implement
   }
 
   deleteDevice(device: Device) : void {
-    this.messageService.add('DeviceService: deleted device ' + device.deviceId);
+    this.log('Deleted device ' + device.deviceId);
     //TODO: Implement
   }
+
+  private log(message: string) {
+    this.messageService.add(`HeroService: ${message}`);
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+
 }

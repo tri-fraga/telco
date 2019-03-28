@@ -23,7 +23,6 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(Object.keys(IPVersion));
   }
 
   IPVersionKeys() : string[] {

@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDeviceService }  from './device/in-memory-device.service';
+
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { MessagesComponent } from './messages/messages.component';
@@ -23,9 +26,12 @@ import { DeviceAddDialogComponent } from './device/device-add-dialog/device-add-
     DeviceAddDialogComponent,
   ],
   imports: [
+    AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    AppRoutingModule
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDeviceService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent],

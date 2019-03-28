@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter   } from '@angular/core';
+import {  Observable } from 'rxjs';
+import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 import { Device } from '../model/device';
@@ -12,13 +14,11 @@ import { DeviceService } from '../device.service';
 
 export class DeviceListComponent implements OnInit {
   displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'more'];
-  dataSource: MatTableDataSource<Device>;
-  devices: Device[];
+  dataSource: DeviceDataSource;
   selectedDevice: Device;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   constructor(private deviceService : DeviceService) {
+    this.dataSource = new DeviceDataSource(deviceService)
     deviceService.selectedDevice$.subscribe(
       device => {
         this.selectedDevice = device;
@@ -26,14 +26,6 @@ export class DeviceListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDevices();
-    this.dataSource = new MatTableDataSource<Device>(this.devices);
-    this.dataSource.paginator = this.paginator;
-  }
-
-  getDevices() : void {
-    this.deviceService.getDevices()
-    .subscribe(devices => this.devices = devices);
   }
 
   selectDevice(device: Device) : void {
@@ -49,4 +41,14 @@ export class DeviceListComponent implements OnInit {
     console.log("/device/" + device.deviceId)
   }
 
+}
+
+export class DeviceDataSource extends DataSource<any> {
+  constructor(private deviceService : DeviceService) {
+    super();
+  }
+  connect(): Observable<Device[]> {
+    return this.deviceService.getDevices();
+  }
+  disconnect() {}
 }

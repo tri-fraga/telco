@@ -14,6 +14,7 @@ import { IPVersion } from './iPVersion';
 
 
 export class Device {
+    id?: number;
     deviceId?: string;
     deviceType?: string;
     deviceNumber?: number;
