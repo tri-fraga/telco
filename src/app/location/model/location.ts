@@ -11,7 +11,7 @@
  */
 
 
-export interface Location { 
+export interface Location {
     locationId: string;
     address: string;
     contactPhone?: string;

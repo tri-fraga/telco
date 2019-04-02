@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, EventEmitter   } from '@angular/core';
-import {  Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator } from '@angular/material';
 
 import { Device } from '../model/device';
 import { DeviceService } from '../device.service';
@@ -21,7 +21,7 @@ export class DeviceListComponent implements OnInit {
     this.dataSource = new DeviceDataSource(deviceService)
     deviceService.selectedDevice$.subscribe(
       device => {
-        this.selectedDevice = device;
+        this.selectedDevice = Object.assign({},device);
     });
   }
 
@@ -39,6 +39,10 @@ export class DeviceListComponent implements OnInit {
 
   getDeviceDirectLink(device: Device) : void {
     console.log("/device/" + device.deviceId)
+  }
+
+  refreshDevices() : void {
+    this.dataSource = new DeviceDataSource(this.deviceService);
   }
 
 }

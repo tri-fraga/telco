@@ -5,24 +5,34 @@ import { Device } from './model/device';
 @Injectable({
   providedIn: 'root'
 })
+/*
+id: number;
+deviceId: string;
+deviceType: string;
+deviceNumber: number;
+hostName?: string;
+domainName?: string;
+adminState?: AdministrativeState;
+ipVersionActivated?: IPVersion;
+ipVersionSupported?: IPVersion;
+routerCode?: number;
+qoS?: boolean;
+locationId?: string;
+comment?: string;
+*/
 export class InMemoryDeviceService implements InMemoryDbService {
   createDb() {
     const devices = [
-      {id: 1, deviceId: "1", deviceType: 'Hydrogen', deviceNumber: 1.0079, hostName: 'H'},
-      {id: 2, deviceId: "2", deviceType: 'Helium', deviceNumber: 4.0026, hostName: 'He'},
-      {id: 3, deviceId: "3", deviceType: 'Lithium', deviceNumber: 6.941, hostName: 'Li'},
-      {id: 4, deviceId: "4", deviceType: 'Beryllium', deviceNumber: 9.0122, hostName: 'Be'},
-      {id: 5, deviceId: "5", deviceType: 'Boron', deviceNumber: 10.811, hostName: 'B'},
-      {id: 6, deviceId: "6", deviceType: 'Carbon', deviceNumber: 12.0107, hostName: 'C'},
-      {id: 7, deviceId: "7", deviceType: 'Nitrogen', deviceNumber: 14.0067, hostName: 'N'},
-      {id: 8, deviceId: "8", deviceType: 'Oxygen', deviceNumber: 15.9994, hostName: 'O'},
-      {id: 9, deviceId: "9", deviceType: 'Fluorine', deviceNumber: 18.9984, hostName: 'F'},
-      {id: 10, deviceId: "10", deviceType: 'Neon', deviceNumber: 20.1797, hostName: 'Ne'},
-      {id: 11, deviceId: "11", deviceType: 'Soldium', deviceNumber: 1.0079, hostName: 'Na'},
-      {id: 12, deviceId: "12", deviceType: 'Magnesium', deviceNumber: 4.0026, hostName: 'Mg'},
-      {id: 13, deviceId: "13", deviceType: 'Aluminium', deviceNumber: 6.941, hostName: 'Al'},
-      {id: 14, deviceId: "14", deviceType: 'Silicon', deviceNumber: 9.0122, hostName: 'Si'},
-      {id: 15, deviceId: "15", deviceType: 'Phosphorous', deviceNumber: 10.811, hostName: 'P'},
+      {id: 1, deviceId: 'T-AA1', deviceType: 'cisco12416', deviceNumber: 111111, hostName: 'TOS-CAA1', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Unlocked', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv4', routerCode: 2492, qoS: true, locationId:'T-LA', comment:'Testing'},
+      {id: 2, deviceId: 'T-AX2', deviceType: 'cisco12416', deviceNumber: 111112, hostName: 'TOS-CAX2', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Locked', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv4', routerCode: 2492, qoS: true, locationId:'T-VIE', comment:'Testing'},
+      {id: 3, deviceId: 'T-BB3', deviceType: 'JuniperMX960', deviceNumber: 311111, hostName: 'TOS-JBB3', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Unlocked', ipVersionActivated: 'IPv6', ipVersionSupported: 'IPv6', routerCode: 2492, qoS: true, locationId:'T-VIE', comment:'Testing'},
+      {id: 4, deviceId: 'T-CA4', deviceType: 'cisco12416', deviceNumber: 111113, hostName: 'TOS-CCA4', domainName: 'TOS.TESTING.TRI.DE', adminState: 'OutOfService', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv4', routerCode: 2492, qoS: true, locationId:'T-DUS', comment:'Testing'},
+      {id: 5, deviceId: 'T-MM5', deviceType: 'JuniperM320', deviceNumber: 211111, hostName: 'TOS-JMM5', domainName: 'TOS.TESTING.TRI.DE', adminState: 'Unlocked', ipVersionActivated: 'IPv6', ipVersionSupported: 'IPv6', routerCode: 2492, qoS: false, locationId:'T-DUS', comment:'Testing'},
+      {id: 6, deviceId: 'T-SO6', deviceType: 'cisco12416', deviceNumber: 111114, hostName: 'TOS-CSO6', domainName: 'TOS.PROD.TRI.COM', adminState: 'Unlocked', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv4', routerCode: 2492, qoS: true, locationId:'T-VIE', comment:'Testing'},
+      {id: 7, deviceId: 'X-XX7', deviceType: 'cisco12416', deviceNumber: 111115, hostName: 'TOS-CXX7', domainName: 'TOS.PROD.TRI.COM', adminState: 'Unlocked', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv4', routerCode: 2492, qoS: true, locationId:'T-VIE', comment:''},
+      {id: 8, deviceId: 'Z-ZA8', deviceType: 'JuniperM320', deviceNumber: 211112, hostName: 'TOS-JZA8', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Locked', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv6', routerCode: 2492, qoS: false, locationId:'T-VIE', comment:''},
+      {id: 9, deviceId: 'T-AA9', deviceType: 'JuniperM320', deviceNumber: 211113, hostName: 'TOS-JAA9', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Unknown', ipVersionActivated: 'IPv6', ipVersionSupported: 'IPv6', routerCode: 2492, qoS: false, locationId:'T-LA', comment:''},
+
     ];
     return {devices};
   }

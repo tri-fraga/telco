@@ -42,7 +42,7 @@ export class DeviceService {
   }
 
   unselectDevice() : void {
-    this.selectedDevice = new Device();
+    this.selectedDevice = null;
     this.selectedDeviceSource.next(this.selectedDevice);
   }
 
@@ -60,7 +60,7 @@ export class DeviceService {
   getDevice(id: string) : Observable<Device> {
     const url = `${this.deviceUrl}/${id}`;
     return this.http.get<Device>(url).pipe(
-      tap(_ => this.log(`fetched device id=${id}`)),
+      tap(_ => this.log(`fetched device id ${id}`)),
       catchError(this.handleError<Device>(`getDevice id=${id}`))
     );
   }
@@ -71,9 +71,16 @@ export class DeviceService {
   }
 
   updateDevice(device: Device) : void {
-    this.messageService.show('Updated Device');
-    this.log(' Updated device ' + device.deviceId);
-    //TODO: Implement
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    this.http.put(this.deviceUrl, device, httpOptions).pipe(
+      tap(_ => {
+        this.log(`updated device ${device.deviceId}`);
+        this.messageService.show("Updated Device")
+      }),
+      catchError(this.handleError<any>('updateDevice'))
+    ).subscribe();
   }
 
   deleteDevice(device: Device) : void {

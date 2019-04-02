@@ -18,7 +18,7 @@ export class DeviceDetailsComponent implements OnInit {
     //this.device = new Device();
     deviceService.selectedDevice$.subscribe(
       device => {
-        this.device = device;
+        this.device = Object.assign({}, device);
     });
   }
 

@@ -1,9 +1,11 @@
-<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around top">
-  <app-device-list fxFlex.gt-sm="60%"></app-device-list>
-  <app-device-details fxFlex.gt-sm="30%"></app-device-details>
-</div>
-<div class="add">
-  <button mat-fab color="accent" (click)="openDeviceAddDialog()">
-    <mat-icon aria-label="New">add</mat-icon>
-  </button>
+<div class="device-view-wrap">
+  <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around top">
+    <app-device-list fxFlex.gt-sm="60%"></app-device-list>
+    <app-device-details fxFlex.gt-sm="30%"></app-device-details>
+  </div>
+  <div class="add">
+    <button mat-fab color="accent" (click)="openDeviceAddDialog()">
+      <mat-icon aria-label="New">add</mat-icon>
+    </button>
+  </div>
 </div>
