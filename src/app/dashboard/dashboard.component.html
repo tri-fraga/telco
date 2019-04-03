@@ -1,6 +1,6 @@
 <div class="dashboard" >
   <button mat-raised-button color="accent" routerLink="/devices">
-    {{deviceService.getDeviceCount()}} Devices
+    {{deviceCount || ''}} Devices
   </button>
   <button mat-raised-button color="accent">
     Locations

@@ -1,10 +1,30 @@
 <h1 mat-dialog-title>Add Device</h1>
 <div mat-dialog-content>
-  <mat-form-field>
-    <input matInput [(ngModel)]="device.name">
-  </mat-form-field>
+  <div class="dialog-fields" fxLayout="column">
+    <mat-form-field>
+      <input matInput [(ngModel)]="device.deviceId" id="device.deviceId" placeholder="Device Id" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="device.deviceType" id="device.deviceType" placeholder="Device Type" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="device.deviceNumber" id="device.deviceNumber" placeholder="Device Number" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="device.hostName" id="device.hostName" placeholder="Hostname"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="device.domainName" id="device.domainName" placeholder="Domain Name"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Administrative State</mat-label>
+      <select matNativeControl [(ngModel)]="device.adminState" name="device.adminState">
+        <option *ngFor="let state of AdminStateKeys()" [value]="state">{{state}}</option>
+      </select>
+    </mat-form-field>
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button [mat-dialog-close]="device" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="device" cdkFocusInitial color="primary">Ok</button>
 </div>

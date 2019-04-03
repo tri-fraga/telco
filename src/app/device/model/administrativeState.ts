@@ -14,8 +14,8 @@
 export type AdministrativeState = 'Locked' | 'Unlocked' | 'Disabled' | 'OutOfService' | 'Unknown';
 
 export const AdministrativeState = {
-    Locked: 'Locked' as AdministrativeState,
     Unlocked: 'Unlocked' as AdministrativeState,
+    Locked: 'Locked' as AdministrativeState,
     Disabled: 'Disabled' as AdministrativeState,
     OutOfService: 'OutOfService' as AdministrativeState,
     Unknown: 'Unknown' as AdministrativeState

@@ -32,17 +32,17 @@ export class DeviceViewComponent implements OnInit {
 
   getDeviceByParam(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.deviceService.selectDeviceById(id);
+    this.deviceService.selectDevice(+id);
   }
 
   openDeviceAddDialog(): void {
     const dialogRef = this.dialog.open(DeviceAddDialogComponent, {
-      width: '800px'
+      width: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
-        this.deviceService.addDevice(result);
+        this.deviceService.addDevice(result).subscribe();
       }
     });
   }

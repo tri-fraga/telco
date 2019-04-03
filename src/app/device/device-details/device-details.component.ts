@@ -12,14 +12,14 @@ import { DeviceService } from '../device.service';
 })
 
 export class DeviceDetailsComponent implements OnInit {
-	device: Device;
+
+  private device: Device;
+  private inputEnabled: boolean;
 
   constructor(private deviceService : DeviceService) {
-    //this.device = new Device();
+    this.inputEnabled = false;
     deviceService.selectedDevice$.subscribe(
-      device => {
-        this.device = Object.assign({}, device);
-    });
+      device => this.setDevice(device));
   }
 
   ngOnInit() {
@@ -33,12 +33,28 @@ export class DeviceDetailsComponent implements OnInit {
     return Object.keys(AdministrativeState);
   }
 
+  enableInput() : void {
+    this.inputEnabled = true;
+  }
+
+  disableInput() : void {
+    this.inputEnabled = false;
+  }
+
+  setDevice(device: Device) : void {
+    this.device = device;
+    this.enableInput();
+  }
+
   clearDevice() : void {
     this.deviceService.unselectDevice();
+    this.disableInput();
   }
 
   saveDevice() : void {
-    this.deviceService.updateDevice(this.device);
+    this.deviceService.updateDevice(this.device).subscribe(() => {
+      this.clearDevice();
+    });
   }
 
 }

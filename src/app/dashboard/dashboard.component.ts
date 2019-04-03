@@ -11,11 +11,14 @@ import { DeviceService } from '../device/device.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(
-    private deviceService : DeviceService,
-    private titleService: Title
-  )
-  {}
+  private deviceCount: number;
+
+  constructor(private deviceService : DeviceService, private titleService: Title) {
+    this.deviceCount = 0;
+    deviceService.getDevices().subscribe(devices => {
+      this.deviceCount = +devices.length;
+    });
+  }
 
   ngOnInit() {
     this.titleService.setTitle("Dashboard | TRICOM");

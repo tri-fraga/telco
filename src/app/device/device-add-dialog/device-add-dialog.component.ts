@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
+import { AdministrativeState } from '../model/administrativeState';
 import { Device } from '../model/device';
 
 @Component({
@@ -17,10 +18,15 @@ export class DeviceAddDialogComponent implements OnInit {
 
   ngOnInit() {
     this.device = new Device();
+    this.device.adminState = AdministrativeState.Unlocked;
   }
 
   onCancel(): void {
     this.dialogRef.close();
+  }
+
+  AdminStateKeys(): string[] {
+    return Object.keys(AdministrativeState);
   }
 
 }

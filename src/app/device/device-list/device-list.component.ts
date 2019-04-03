@@ -18,10 +18,16 @@ export class DeviceListComponent implements OnInit {
   selectedDevice: Device;
 
   constructor(private deviceService : DeviceService) {
-    this.dataSource = new DeviceDataSource(deviceService)
+    this.dataSource = new DeviceDataSource(deviceService);
+
     deviceService.selectedDevice$.subscribe(
       device => {
-        this.selectedDevice = Object.assign({},device);
+        this.selectedDevice = device;//Object.assign({},device);
+    });
+
+    this.deviceService.hasUpdates$.subscribe(
+      hasUpdate => {
+        if(hasUpdate) this.refreshDevices();
     });
   }
 
@@ -29,16 +35,17 @@ export class DeviceListComponent implements OnInit {
   }
 
   selectDevice(device: Device) : void {
-    this.selectedDevice = device;
-    this.deviceService.selectDevice(this.selectedDevice);
+    this.deviceService.selectDevice(device.id);
   }
 
   deleteDevice(device: Device) : void {
-    this.deviceService.deleteDevice(device);
+    this.deviceService.deleteDevice(device.id).subscribe(() => {
+      //this.refreshDevices();
+    });
   }
 
   getDeviceDirectLink(device: Device) : void {
-    console.log("/device/" + device.deviceId)
+    console.log("/device/" + device.id);
   }
 
   refreshDevices() : void {
