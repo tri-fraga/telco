@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatSnackBar, MatBottomSheet } from '@angular/material';
 
-import { MessageService } from './message.service';
-import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './shared/services/message.service';
+import { MessagesComponent } from './shared/messages/messages.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent {
 
     messageService.snackMessage$.subscribe(
       message => {
-        this.showSnackbar(message);
+        this.showSnackbar(message); 
     });
 
   }

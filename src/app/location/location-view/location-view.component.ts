@@ -25,7 +25,7 @@ export class LocationViewComponent implements OnInit {
     this.titleService.setTitle("Locations | TRICOM");
   }
 
-  openDeviceAddDialog(): void {
+  openLocationAddDialog(): void {
     /*const dialogRef = this.dialog.open(LocationAddDialogComponent, {
       width: '400px'
     });

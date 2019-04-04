@@ -12,6 +12,7 @@
 
 
 export interface Location {
+    id: number;
     locationId: string;
     address: string;
     contactPhone?: string;

@@ -1,3 +1,9 @@
-<p>
-  location-view works!
-</p>
+<div class="location-view-wrap">
+  <app-location-list></app-location-list>
+</div>
+
+<div class="add">
+  <button mat-fab color="accent" (click)="openLocationAddDialog()">
+    <mat-icon aria-label="New">add</mat-icon>
+  </button>
+</div>

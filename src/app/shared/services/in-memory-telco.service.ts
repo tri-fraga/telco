@@ -1,26 +1,13 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Device } from './model/device';
+import { Device } from '../../device/model/device';
+import { Location } from '../../location/model/location';
 
 @Injectable({
   providedIn: 'root'
 })
-/*
-id: number;
-deviceId: string;
-deviceType: string;
-deviceNumber: number;
-hostName?: string;
-domainName?: string;
-adminState?: AdministrativeState;
-ipVersionActivated?: IPVersion;
-ipVersionSupported?: IPVersion;
-routerCode?: number;
-qoS?: boolean;
-locationId?: string;
-comment?: string;
-*/
-export class InMemoryDeviceService implements InMemoryDbService {
+
+export class InMemoryTelcoService implements InMemoryDbService {
   createDb() {
     const devices = [
       {id: 1, deviceId: 'T-AA1', deviceType: 'cisco12416', deviceNumber: 111111, hostName: 'TOS-CAA1', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Unlocked', ipVersionActivated: 'IPv4', ipVersionSupported: 'IPv4', routerCode: 2492, qoS: true, locationId:'T-LA', comment:'Testing'},
@@ -34,10 +21,20 @@ export class InMemoryDeviceService implements InMemoryDbService {
       {id: 9, deviceId: 'T-AA9', deviceType: 'JuniperM320', deviceNumber: 211113, hostName: 'TOS-JAA9', domainName: 'TOS.TESTING.TRI.COM', adminState: 'Unknown', ipVersionActivated: 'IPv6', ipVersionSupported: 'IPv6', routerCode: 2492, qoS: false, locationId:'T-LA', comment:''},
 
     ];
-    return {devices};
+
+    const locations = [
+      {id: 1, locationId: 'TRI-VIE-22', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
+      {id: 2, locationId: 'TRI-VIE-21', address: 'Leonard-Bernstein Strasse 10, 1120 Wien', contactPhone: "+43664888333700", comment: ''},
+      {id: 3, locationId: 'TRI-VIE-01', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: 'Test'},
+      {id: 4, locationId: 'TRI-VIE-05', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
+      {id: 5, locationId: 'TRI-VIE-23', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
+      {id: 6, locationId: 'TRI-VIE-04', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
+
+    ];
+    return {devices, locations};
   }
 
-  genId(devices: Device[]): number {
-    return devices.length > 0 ? Math.max(...devices.map(device => device.id)) + 1 : 11;
+  genId(list: any[]): number {
+    return list.length > 0 ? Math.max(...list.map(list => list.id)) + 1 : 11;
   }
 }

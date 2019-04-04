@@ -35,8 +35,8 @@
       <td mat-cell *matCellDef="let element"> {{element.adminState}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="more">
-      <th mat-header-cell *matHeaderCellDef> More </th>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let element">
         <button mat-icon-button (click)="selectDevice(element)">
           <mat-icon aria-label="Edit">launch</mat-icon>
@@ -51,7 +51,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selected]="row.deviceId && row.deviceId === selectedDevice?.deviceId"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selected]="row.id && row.id === selectedDevice?.id"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 

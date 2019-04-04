@@ -12,7 +12,7 @@ import { DeviceService } from '../device.service';
 })
 
 export class DeviceListComponent implements OnInit {
-  displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'more'];
+  displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'actions'];
   dataSource: DeviceDataSource;
   selectedDevice: Device;
 
@@ -38,9 +38,9 @@ export class DeviceListComponent implements OnInit {
   }
 
   deleteDevice(device: Device) : void {
-    this.deviceService.deleteDevice(device.id).subscribe(() => {
-      //this.refreshDevices();
-    });
+    if(confirm("Are you sure to delete " + device.deviceId)) {
+      this.deviceService.deleteDevice(device.id).subscribe();
+    }
   }
 
   getDeviceDirectLink(device: Device) : void {

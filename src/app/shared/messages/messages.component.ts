@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material';
 
-import { MessageService } from '../message.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-messages',

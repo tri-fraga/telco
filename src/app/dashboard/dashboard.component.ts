@@ -4,6 +4,9 @@ import { BrowserModule, Title }  from '@angular/platform-browser';
 import { Device } from '../device/model/device';
 import { DeviceService } from '../device/device.service';
 
+import { Location } from '../location/model/location';
+import { LocationService } from '../location/location.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,11 +15,19 @@ import { DeviceService } from '../device/device.service';
 export class DashboardComponent implements OnInit {
 
   private deviceCount: number;
+  private locationCount: number;
 
-  constructor(private deviceService : DeviceService, private titleService: Title) {
+  constructor(
+    private titleService: Title,
+    private deviceService : DeviceService,
+    private locationService : LocationService
+  ) {
     this.deviceCount = 0;
     deviceService.getDevices().subscribe(devices => {
       this.deviceCount = +devices.length;
+    });
+    locationService.getLocations().subscribe(locations => {
+      this.locationCount = +locations.length;
     });
   }
 
