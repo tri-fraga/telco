@@ -1,12 +1,14 @@
+@import '~src/theme.scss';
+
 .header {
 	position: sticky;
 	position: -webkit-sticky;
 	top: 0;
 	z-index: 1000;
-	border-top: 3px solid #1d63af;
-	border-bottom: 1px solid #ccc;
-	color: #1d63af;
-	background-color: #fff;
+	border-top: 3px solid mat-color($tri-primary);
+	border-bottom: 1px solid mat-color($tri-primary, 100);
+	color: mat-color($tri-primary);
+	background-color: #FFF;
 	padding-left: 0;
 }
 
@@ -32,7 +34,7 @@
 }
 
 .mat-drawer-container {
-	background-color: #fff;
+	background-color: #FFF;
 }
 
 .mat-sidenav {
@@ -45,8 +47,8 @@
 
 .mat-sidenav a:hover,
 .mat-sidenav a.active {
-	color: #fff;
-	background-color: #1d63af;
+	color: mat-color($tri-primary, 50);
+	background-color: mat-color($tri-primary);
 }
 
 
