@@ -18,9 +18,9 @@ import { DeviceAddDialogComponent } from '../device-add-dialog/device-add-dialog
 export class DeviceViewComponent implements OnInit {
 
   constructor(
-    private dialog : MatDialog,
     private route: ActivatedRoute,
     private router: Router,
+    private dialog : MatDialog,
     private titleService: Title,
     private deviceService: DeviceService
   ) {}

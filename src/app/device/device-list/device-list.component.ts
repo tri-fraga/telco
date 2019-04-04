@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator } from '@angular/material';
 
 import { Device } from '../model/device';
 import { DeviceService } from '../device.service';

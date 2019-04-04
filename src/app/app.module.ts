@@ -13,6 +13,8 @@ import { DeviceViewComponent } from './device/device-view/device-view.component'
 import { DeviceListComponent } from './device/device-list/device-list.component';
 import { DeviceDetailsComponent } from './device/device-details/device-details.component';
 import { DeviceAddDialogComponent } from './device/device-add-dialog/device-add-dialog.component';
+import { LocationViewComponent } from './location/location-view/location-view.component';
+import { LocationListComponent } from './location/location-list/location-list.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { DeviceAddDialogComponent } from './device/device-add-dialog/device-add-
     DeviceListComponent,
     DeviceDetailsComponent,
     DeviceAddDialogComponent,
+    LocationViewComponent,
+    LocationListComponent,
   ],
   imports: [
     AppRoutingModule,
