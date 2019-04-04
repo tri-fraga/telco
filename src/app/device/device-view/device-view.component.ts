@@ -12,7 +12,7 @@ import { DeviceAddDialogComponent } from '../device-add-dialog/device-add-dialog
 @Component({
   selector: 'app-device-view',
   templateUrl: './device-view.component.html',
-  styleUrls: ['./device-view.component.css']
+  styleUrls: ['./device-view.component.scss']
 })
 
 export class DeviceViewComponent implements OnInit {

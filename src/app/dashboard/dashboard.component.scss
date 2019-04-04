@@ -1,0 +1,12 @@
+@import '~src/theme.scss';
+
+.dashboard {
+  text-align: center;
+
+  button {
+    min-height: 200px;
+    min-width: 300px;
+    margin: 1em;
+    font-size: 2em;
+  }
+}

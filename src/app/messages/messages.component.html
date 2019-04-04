@@ -1,7 +1,7 @@
 <mat-list dense>
   <div matSubheader>
     <h3>Message Log</h3>
-    <button *ngIf="messageService.messages.length" mat-icon-button color="accent" (click)="clearMessages()">
+    <button *ngIf="messageService.messages.length" mat-icon-button color="warn" (click)="clearMessages()">
       <mat-icon aria-label="Delete">delete</mat-icon>
     </button>
   </div>

@@ -7,7 +7,7 @@ import { Device } from '../model/device';
 @Component({
   selector: 'app-device-add-dialog',
   templateUrl: './device-add-dialog.component.html',
-  styleUrls: ['./device-add-dialog.component.css']
+  styleUrls: ['./device-add-dialog.component.scss']
 })
 
 export class DeviceAddDialogComponent implements OnInit {

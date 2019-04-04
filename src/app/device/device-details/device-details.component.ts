@@ -8,7 +8,7 @@ import { DeviceService } from '../device.service';
 @Component({
   selector: 'app-device-details',
   templateUrl: './device-details.component.html',
-  styleUrls: ['./device-details.component.css']
+  styleUrls: ['./device-details.component.scss']
 })
 
 export class DeviceDetailsComponent implements OnInit {

@@ -1,0 +1,25 @@
+@import '~src/theme.scss';
+
+table {
+  width: 100%;
+}
+
+h4 {
+  display: inline-block;
+}
+
+.button-refresh {
+  float: right;
+}
+
+tr.mat-row:hover {
+  background: mat-color($tri-primary, 50);
+}
+
+tr.mat-row.selected {
+  background: mat-color($tri-primary);
+
+  .mat-cell {
+    color: #fff;
+  }
+}

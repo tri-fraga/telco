@@ -43,6 +43,7 @@ export class DeviceService {
 
   public unselectDevice() : void {
     this.selectedDeviceSource.next(new Device());
+    this.log(`Unselected device`);
   }
 
   public getDevices(): Observable<Device[]> {
@@ -72,6 +73,12 @@ export class DeviceService {
   }
 
   public updateDevice(device: Device): Observable<Device> {
+    if(!device.id) {
+      this.messageService.show("Could not update Device");
+      this.log(`Update device ${device.deviceId} failed - Id not set`);
+      return;
+    }
+
     return this.http.put(this.deviceUrl, device, this.httpOptions).pipe(
       tap(_ => {
         this.log(`Updated device ${device.deviceId} (${device.id})`);
@@ -103,6 +110,7 @@ export class DeviceService {
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
+      this.messageService.show(`${operation} failed`);
       this.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     };
