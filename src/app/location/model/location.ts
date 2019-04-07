@@ -11,10 +11,13 @@
  */
 
 
-export interface Location {
+export class Location {
     id: number;
     locationId: string;
     address: string;
     contactPhone?: string;
     comment?: string;
+
+    public constructor() {}
+
 }

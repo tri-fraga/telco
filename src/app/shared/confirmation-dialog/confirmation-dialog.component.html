@@ -1,3 +1,8 @@
-<p>
-  confirmation-dialog works!
-</p>
+<mat-label color="warn">{{data.message}}</mat-label>
+
+<div mat-dialog-actions>
+
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="warn">{{data.positive}}</button>
+  <button *ngIf="data.negative" mat-button (click)="onCancel()">{{data.negative}}</button>
+  <button *ngIf="data.cancel" mat-button (click)="onCancel()">{{data.cancel}}</button>
+</div>

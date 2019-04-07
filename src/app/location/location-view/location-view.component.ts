@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { LocationService }  from '../location.service';
 import { LocationListComponent } from '../location-list/location-list.component';
+import { LocationAddDialogComponent } from '../location-add-dialog/location-add-dialog.component'
 
 @Component({
   selector: 'app-location-view',
@@ -26,7 +27,7 @@ export class LocationViewComponent implements OnInit {
   }
 
   openLocationAddDialog(): void {
-    /*const dialogRef = this.dialog.open(LocationAddDialogComponent, {
+    const dialogRef = this.dialog.open(LocationAddDialogComponent, {
       width: '400px'
     });
 
@@ -34,7 +35,7 @@ export class LocationViewComponent implements OnInit {
       if(result != null) {
         this.locationService.addLocation(result).subscribe();
       }
-    });*/
+    });
   }
 
 }

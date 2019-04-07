@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/collections';
 
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
+
 import { Device } from '../model/device';
 import { DeviceService } from '../device.service';
 
@@ -16,7 +19,7 @@ export class DeviceListComponent implements OnInit {
   dataSource: DeviceDataSource;
   selectedDevice: Device;
 
-  constructor(private deviceService : DeviceService) {
+  constructor(private deviceService : DeviceService, private dialog : MatDialog) {
     this.dataSource = new DeviceDataSource(deviceService);
 
     deviceService.selectedDevice$.subscribe(
@@ -38,9 +41,17 @@ export class DeviceListComponent implements OnInit {
   }
 
   deleteDevice(device: Device) : void {
-    if(confirm("Are you sure to delete " + device.deviceId)) {
-      this.deviceService.deleteDevice(device.id).subscribe();
-    }
+    this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: "Do you want to delete this device?",
+        positive: "Yes",
+        negative: "No"
+      }
+    }).afterClosed().subscribe(close => {
+      if(close) {
+        this.deviceService.deleteDevice(device.id).subscribe();
+      }
+    });
   }
 
   getDeviceDirectLink(device: Device) : void {

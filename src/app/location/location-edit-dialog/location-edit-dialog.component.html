@@ -1,3 +1,21 @@
-<p>
-  location-edit-dialog works!
-</p>
+<h1 mat-dialog-title>Update Location</h1>
+<div mat-dialog-content>
+  <div class="dialog-fields" fxLayout="column">
+    <mat-form-field>
+      <input matInput [(ngModel)]="location.locationId" id="location.locationId" placeholder="Location Id" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="location.address" id="location.address" placeholder="Location Address" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="location.contactPhone" id="location.contactPhone" placeholder="Contact Phone" required>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matNativeControl [(ngModel)]="location.comment" id="location.comment" placeholder="Comment"></textarea>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="location" cdkFocusInitial color="accent">Update</button>
+</div>

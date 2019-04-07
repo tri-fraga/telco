@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -35,9 +36,10 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     LocationAddDialogComponent,
     LocationAssignDialogComponent,
     LocationEditDialogComponent,
-    ConfirmationDialogComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
+    CommonModule,
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
@@ -49,7 +51,10 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
   bootstrap: [AppComponent],
   entryComponents: [
     MessagesComponent,
-    DeviceAddDialogComponent
+    ConfirmationDialogComponent,
+    DeviceAddDialogComponent,
+    LocationAddDialogComponent,
+    LocationEditDialogComponent
   ]
 })
 export class AppModule { }
