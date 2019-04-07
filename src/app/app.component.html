@@ -1,5 +1,5 @@
 <mat-toolbar class="header">
-  <button class="hamburger" mat-button (click)="sidenav.toggle()">
+  <button class="hamburger" id="menu_toggle" mat-button (click)="sidenav.toggle()">
     <mat-icon aria-label="Menu">menu</mat-icon>
   </button>
 
@@ -10,7 +10,7 @@
     </h1>
   </div>
 
-  <button class="debug" mat-button (click)="showMessages()" color="accent">
+  <button id="debug_toggle" class="debug" mat-button (click)="showMessages()" color="accent">
     <mat-icon aria-label="Debug Mode">bug_report</mat-icon>
   </button>
 </mat-toolbar>
@@ -19,9 +19,9 @@
   <mat-sidenav #sidenav mode="push">
 
     <mat-list>
-       <a mat-list-item routerLinkActive="active" routerLink="/dashboard" (click)="sidenav.close()">Dashboard</a>
-       <a mat-list-item routerLinkActive="active" routerLink="/devices" (click)="sidenav.close()">Devices</a>
-       <a mat-list-item routerLinkActive="active" routerLink="/locations" (click)="sidenav.close()">Locations</a>
+       <a mat-list-item routerLinkActive="active" routerLink="/dashboard" id="nav_dashboard" (click)="sidenav.close()">Dashboard</a>
+       <a mat-list-item routerLinkActive="active" routerLink="/devices" id="nav_devices" (click)="sidenav.close()">Devices</a>
+       <a mat-list-item routerLinkActive="active" routerLink="/locations" id="nav_locations" (click)="sidenav.close()">Locations</a>
     </mat-list>
 
   </mat-sidenav>

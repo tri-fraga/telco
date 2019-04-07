@@ -26,7 +26,7 @@ export class DeviceListComponent implements OnInit {
 
     deviceService.selectedDevice$.subscribe(
       device => {
-        this.selectedDevice = device;//Object.assign({},device);
+        this.selectedDevice = device;
     });
 
     this.deviceService.hasUpdates$.subscribe(
@@ -48,7 +48,6 @@ export class DeviceListComponent implements OnInit {
       data: {
       }
     }).afterClosed().subscribe(location => {
-      console.log(location);
       if(location) {
         this.deviceService.assignDeviceToLocation(device, location).subscribe();
       } else if (location === false) {

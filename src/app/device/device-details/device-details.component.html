@@ -1,47 +1,47 @@
 <h4>Device Details</h4>
 <div fxLayout="column">
   <mat-form-field>
-    <input matInput [ngModel]="device?.hostName" (ngModelChange)="device.hostName = $event" id="device.hostName" placeholder="Hostname"/>
+    <input matInput [ngModel]="device?.hostName" (ngModelChange)="device.hostName = $event" id="deviceEdit_hostName" placeholder="Hostname"/>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [ngModel]="device?.domainName" (ngModelChange)="device.domainName = $event" id="device.domainName" placeholder="Domain Name"/>
+    <input matInput [ngModel]="device?.domainName" (ngModelChange)="device.domainName = $event" id="deviceEdit_domainName" placeholder="Domain Name"/>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Administrative State</mat-label>
-    <select matNativeControl [ngModel]="device?.adminState" (ngModelChange)="device.adminState = $event" name="device.adminState">
+    <select matNativeControl [ngModel]="device?.adminState" (ngModelChange)="device.adminState = $event" id="deviceEdit_adminState">
       <option value="" selected></option>
       <option *ngFor="let state of AdminStateKeys()" [value]="state">{{state}}</option>
     </select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>IP Version Activated</mat-label>
-    <select matNativeControl [ngModel]="device?.ipVersionActivated" (ngModelChange)="device.ipVersionActivated = $event" name="device.ipVersionActivated">
+    <select matNativeControl [ngModel]="device?.ipVersionActivated" (ngModelChange)="device.ipVersionActivated = $event" id="deviceEdit_ipVersionActivated">
       <option value="" selected></option>
       <option *ngFor="let version of IPVersionKeys()" [value]="version">{{version}}</option>
     </select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>IP Version Supported</mat-label>
-    <select matNativeControl [ngModel]="device?.ipVersionSupported" (ngModelChange)="device.ipVersionSupported = $event" name="device.ipVersionSupported">
+    <select matNativeControl [ngModel]="device?.ipVersionSupported" (ngModelChange)="device.ipVersionSupported = $event" id="deviceEdit_ipVersionSupported">
       <option value="" selected></option>
       <option *ngFor="let version of IPVersionKeys()" [value]="version">{{version}}</option>
     </select>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [ngModel]="device?.routerCode" (ngModelChange)="device.routerCode = $event" id="device.routerCode" placeholder="Router Code"/>
+    <input matInput [ngModel]="device?.routerCode" (ngModelChange)="device.routerCode = $event" id="deviceEdit_routerCode" placeholder="Router Code"/>
   </mat-form-field>
-  <mat-checkbox [ngModel]="device?.qoS" (ngModelChange)="device.qoS = $event" id="device.qoS">QoS Enabled</mat-checkbox>
+  <mat-checkbox [ngModel]="device?.qoS" (ngModelChange)="device.qoS = $event" id="deviceEdit_qoS">QoS Enabled</mat-checkbox>
   <mat-form-field>
-    <textarea matNativeControl [ngModel]="device?.comment" (ngModelChange)="device.comment = $event" id="device.comment" placeholder="Comment" style="height: 100px;"></textarea>
+    <textarea matNativeControl [ngModel]="device?.comment" (ngModelChange)="device.comment = $event" id="deviceEdit_comment" placeholder="Comment" style="height: 100px;"></textarea>
   </mat-form-field>
 </div>
 <div gdAuto="column" >
   <div fxLayoutAlign="end center">
-    <button  mat-raised-button color="primary" (click)="saveDevice()">
+    <button  mat-raised-button color="primary" (click)="saveDevice()" id="deviceEdit_save">
       Save
     </button>
     <div fxFlex></div>
-    <button  mat-raised-button (click)="clearDevice()">
+    <button  mat-raised-button (click)="clearDevice()" id="deviceEdit_cancel">
       Cancel
     </button>
   </div>

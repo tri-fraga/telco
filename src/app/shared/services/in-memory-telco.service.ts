@@ -24,9 +24,9 @@ export class InMemoryTelcoService implements InMemoryDbService {
 
     const locations = [
       {id: 1, locationId: 'T-VIE', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
-      {id: 2, locationId: 'T-DUS', address: 'Street 1, 40210 Dusseldorf', contactPhone: "+43664888333700", comment: ''},
-      {id: 3, locationId: 'TRI-VIE-01', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: 'Test'},
-      {id: 4, locationId: 'TRI-VIE-05', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
+      {id: 2, locationId: 'T-DUS', address: 'Street 1, 40210 Dusseldorf', contactPhone: "+42442342423", comment: ''},
+      {id: 3, locationId: 'T-LA', address: 'Street 1, 90001 L.A.', contactPhone: "+019012123", comment: 'Test'},
+      {id: 4, locationId: 'TRI-VIE-05', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: 'This location no longer exists. Plz Delete.'},
       {id: 5, locationId: 'TRI-VIE-23', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
       {id: 6, locationId: 'TRI-VIE-04', address: 'Leonard-Bernstein Strasse 10, 1220 Wien', contactPhone: "+43664888333700", comment: ''},
 

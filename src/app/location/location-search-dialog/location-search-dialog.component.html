@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <div class="dialog-fields" fxLayout="column">
     <mat-form-field>
-      <input type="text" matInput [matAutocomplete]="locationAuto" id="search.location" placeholder="Location"
+      <input type="text" matInput [matAutocomplete]="locationAuto" id="locationSearch_locationId" placeholder="Location"
       #state="ngModel" [(ngModel)]="currentLocationInput" (ngModelChange)="filterLocations(currentLocationInput)">
     </mat-form-field>
 
@@ -14,7 +14,7 @@
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="selectedLocation" cdkFocusInitial color="primary">Select</button>
-  <button mat-button [mat-dialog-close]="false" cdkFocusInitial color="accent">Return</button>
-  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="selectedLocation" cdkFocusInitial color="primary" id="locationSearch_confirm">Select</button>
+  <button mat-button [mat-dialog-close]="false" cdkFocusInitial color="accent" id="locationSearch_return">Return</button>
+  <button mat-button (click)="onCancel()" id="locationSearch_cancel">Cancel</button>
 </div>
