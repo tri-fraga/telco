@@ -32,9 +32,6 @@
   </mat-form-field>
   <mat-checkbox [ngModel]="device?.qoS" (ngModelChange)="device.qoS = $event" id="device.qoS">QoS Enabled</mat-checkbox>
   <mat-form-field>
-    <input matInput [ngModel]="device?.locationId" (ngModelChange)="device.locationId = $event" id="device.locationId" placeholder="Location ID"/>
-  </mat-form-field>
-  <mat-form-field>
     <textarea matNativeControl [ngModel]="device?.comment" (ngModelChange)="device.comment = $event" id="device.comment" placeholder="Comment" style="height: 100px;"></textarea>
   </mat-form-field>
 </div>

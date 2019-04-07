@@ -56,7 +56,7 @@ export class DeviceService {
   public getDevice(id: number) : Observable<Device> {
     const url = `${this.deviceUrl}/${id}`;
     return this.http.get<Device>(url).pipe(
-      tap(_ => this.log(`fetched device id ${id}`)),
+      tap(_ => this.log(`Fetched Device id ${id}`)),
       catchError(this.handleError<Device>(`getDevice id=${id}`))
     );
   }
@@ -65,7 +65,7 @@ export class DeviceService {
     return this.http.post<Device>(this.deviceUrl, device, this.httpOptions).pipe(
       tap((newDevice: Device) => {
         this.log(`Added device ${newDevice.deviceId} (${newDevice.id})`);
-        this.messageService.show('Added Device');
+        this.messageService.show(`Added ${device.deviceId}`);
         this.hasUpdatesSource.next(true);
       }),
       catchError(this.handleError<Device>('addDevice'))
@@ -82,10 +82,38 @@ export class DeviceService {
     return this.http.put(this.deviceUrl, device, this.httpOptions).pipe(
       tap(_ => {
         this.log(`Updated device ${device.deviceId} (${device.id})`);
-        this.messageService.show("Updated Device");
+        this.messageService.show(`Updated ${device.deviceId}`);
         this.hasUpdatesSource.next(true);
       }),
       catchError(this.handleError<any>('updateDevice'))
+    );
+  }
+
+  public assignDeviceToLocation(device: Device, location: Location) : Observable<Device> {
+    device.locationId = location.locationId;
+    return this.http.put(this.deviceUrl, device, this.httpOptions).pipe(
+      tap(_ => {
+        this.log(`Assigned device ${device.deviceId} (${device.id}) to location ${location.locationId} (${location.id})`);
+        this.messageService.show(`Assigned ${device.deviceId} to location ${location.locationId}`);
+        this.hasUpdatesSource.next(true);
+      }),
+      catchError(this.handleError<any>('assignDeviceToLocation'))
+    );
+  }
+
+  public returnDeviceFromLocation(device: Device) : Observable<Device> {
+    var locationId = device.locationId;
+    device.locationId = null;
+
+    if(!locationId) return null;
+
+    return this.http.put(this.deviceUrl, device, this.httpOptions).pipe(
+      tap(_ => {
+        this.log(`Returned device ${device.deviceId} (${device.id}) from location ${locationId}`);
+        this.messageService.show(`Returned device ${device.deviceId} from location ${locationId}`);
+        this.hasUpdatesSource.next(true);
+      }),
+      catchError(this.handleError<any>('returnDeviceFromLocation'))
     );
   }
 

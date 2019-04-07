@@ -13,7 +13,7 @@ export class LocationEditDialogComponent implements OnInit {
   location: Location;
 
   constructor(public dialogRef: MatDialogRef<LocationEditDialogComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    @Inject(MAT_DIALOG_DATA) public data: any) {
     this.location = data.location;
   }
 

@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Search Location</h1>
+<div mat-dialog-content>
+  <div class="dialog-fields" fxLayout="column">
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="locationAuto" id="search.location" placeholder="Location"
+      #state="ngModel" [(ngModel)]="currentLocationInput" (ngModelChange)="filterLocations(currentLocationInput)">
+    </mat-form-field>
+
+    <mat-autocomplete #locationAuto="matAutocomplete" autoActiveFirstOption >
+      <mat-option *ngFor="let loc of availableLocations" [value]="loc.locationId" (onSelectionChange)="selectedLocation = loc">
+        {{loc.locationId}}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="selectedLocation" cdkFocusInitial color="primary">Select</button>
+  <button mat-button [mat-dialog-close]="false" cdkFocusInitial color="accent">Return</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</div>

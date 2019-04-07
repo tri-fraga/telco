@@ -17,8 +17,8 @@ import { DeviceAddDialogComponent } from './device/device-add-dialog/device-add-
 import { LocationViewComponent } from './location/location-view/location-view.component';
 import { LocationListComponent } from './location/location-list/location-list.component';
 import { LocationAddDialogComponent } from './location/location-add-dialog/location-add-dialog.component';
-import { LocationAssignDialogComponent } from './location/location-assign-dialog/location-assign-dialog.component';
 import { LocationEditDialogComponent } from './location/location-edit-dialog/location-edit-dialog.component';
+import { LocationSearchDialogComponent } from './location/location-search-dialog/location-search-dialog.component';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 
 
@@ -34,8 +34,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     LocationViewComponent,
     LocationListComponent,
     LocationAddDialogComponent,
-    LocationAssignDialogComponent,
     LocationEditDialogComponent,
+    LocationSearchDialogComponent,
     ConfirmationDialogComponent
   ],
   imports: [
@@ -54,7 +54,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     ConfirmationDialogComponent,
     DeviceAddDialogComponent,
     LocationAddDialogComponent,
-    LocationEditDialogComponent
+    LocationEditDialogComponent,
+    LocationSearchDialogComponent
   ]
 })
 export class AppModule { }

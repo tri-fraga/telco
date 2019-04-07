@@ -23,3 +23,13 @@ tr.mat-row.selected {
     color: #fff;
   }
 }
+
+td.location {
+  &.unassigned {
+    color: mat-color($tri-warn);
+  }
+
+  &.assigned {
+    color: mat-color($tri-primary);
+  }
+}

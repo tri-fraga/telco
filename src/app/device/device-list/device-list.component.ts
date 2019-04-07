@@ -4,7 +4,9 @@ import { DataSource } from '@angular/cdk/collections';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
+import { LocationSearchDialogComponent } from '../../location/location-search-dialog/location-search-dialog.component';
 
+import { Location } from '../../location/model/location';
 import { Device } from '../model/device';
 import { DeviceService } from '../device.service';
 
@@ -15,7 +17,7 @@ import { DeviceService } from '../device.service';
 })
 
 export class DeviceListComponent implements OnInit {
-  displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'actions'];
+  displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'locationId', 'actions'];
   dataSource: DeviceDataSource;
   selectedDevice: Device;
 
@@ -38,6 +40,21 @@ export class DeviceListComponent implements OnInit {
 
   selectDevice(device: Device) : void {
     this.deviceService.selectDevice(device.id);
+  }
+
+  assignDeviceToLocation(device: Device) : void {
+    this.dialog.open(LocationSearchDialogComponent, {
+      width: '400px',
+      data: {
+      }
+    }).afterClosed().subscribe(location => {
+      console.log(location);
+      if(location) {
+        this.deviceService.assignDeviceToLocation(device, location).subscribe();
+      } else if (location === false) {
+        this.deviceService.returnDeviceFromLocation(device).subscribe();
+      }
+    });
   }
 
   deleteDevice(device: Device) : void {

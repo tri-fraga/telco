@@ -34,7 +34,7 @@ export class LocationService {
   public getLocation(id: number) : Observable<Location> {
     const url = `${this.locationUrl}/${id}`;
     return this.http.get<Location>(url).pipe(
-      tap(_ => this.log(`fetched location id ${id}`)),
+      tap(_ => this.log(`Fetched location id ${id}`)),
       catchError(this.handleError<Location>(`getLocation id=${id}`))
     );
   }
@@ -43,7 +43,7 @@ export class LocationService {
     return this.http.post<Location>(this.locationUrl, location, this.httpOptions).pipe(
       tap((newLocation: Location) => {
         this.log(`Added location ${newLocation.locationId} (${newLocation.id})`);
-        this.messageService.show('Added Location');
+        this.messageService.show(`Added ${newLocation.locationId}`);
         this.hasUpdatesSource.next(true);
       }),
       catchError(this.handleError<Location>('addLocation'))
@@ -60,7 +60,7 @@ export class LocationService {
     return this.http.put(this.locationUrl, location, this.httpOptions).pipe(
       tap(_ => {
         this.log(`Updated location ${location.locationId} (${location.id})`);
-        this.messageService.show("Updated Location");
+        this.messageService.show(`Updated ${newLocation.locationId}`);
         this.hasUpdatesSource.next(true);
       }),
       catchError(this.handleError<any>('updateLocation'))
