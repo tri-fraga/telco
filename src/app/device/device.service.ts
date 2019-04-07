@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from '../shared/services/message.service';
 import { Device } from './model/device';
+import { Location } from '../location/model/location';
 
 @Injectable({
   providedIn: 'root'

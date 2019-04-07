@@ -14,13 +14,13 @@ export class LocationSearchDialogComponent implements OnInit {
   selectedLocation: Location;
   availableLocations: Location[];
 
-  constructor(private locationService : LocationService, public dialogRef: MatDialogRef<LocationEditDialogComponent>,
+  constructor(private locationService : LocationService, public dialogRef: MatDialogRef<LocationSearchDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any)
   {
   }
 
   ngOnInit() {
-    this.filterLocations();
+    this.filterLocations('');
   }
 
   //TODO: Use Search WebService for filtering instead

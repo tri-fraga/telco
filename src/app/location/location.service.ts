@@ -60,7 +60,7 @@ export class LocationService {
     return this.http.put(this.locationUrl, location, this.httpOptions).pipe(
       tap(_ => {
         this.log(`Updated location ${location.locationId} (${location.id})`);
-        this.messageService.show(`Updated ${newLocation.locationId}`);
+        this.messageService.show(`Updated ${location.locationId}`);
         this.hasUpdatesSource.next(true);
       }),
       catchError(this.handleError<any>('updateLocation'))
