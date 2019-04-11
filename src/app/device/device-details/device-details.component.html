@@ -30,7 +30,7 @@
   <mat-form-field>
     <input matInput [ngModel]="device?.routerCode" (change)="device.routerCode = $event.target.value" id="deviceEdit_routerCode" placeholder="Router Code" [disabled]="inputEnabled ? null : true"/>
   </mat-form-field>
-  <mat-checkbox [ngModel]="device?.qoS" (change)="device.qoS = $event.target.value" id="deviceEdit_qoS" [disabled]="inputEnabled ? null : true">QoS Enabled</mat-checkbox>
+  <mat-checkbox [ngModel]="device?.qoS" (change)="device.qoS = $event.checked" id="deviceEdit_qoS" [disabled]="inputEnabled ? null : true">QoS Enabled</mat-checkbox>
   <mat-form-field>
     <textarea matNativeControl [ngModel]="device?.comment" (change)="device.comment = $event.target.value" id="deviceEdit_comment" placeholder="Comment" style="height: 100px;" [disabled]="inputEnabled ? null : true"></textarea>
   </mat-form-field>
