@@ -1,47 +1,47 @@
 <h4>Device Details</h4>
 <div fxLayout="column">
   <mat-form-field>
-    <input matInput [ngModel]="device?.hostName" (ngModelChange)="device.hostName = $event" id="deviceEdit_hostName" placeholder="Hostname"/>
+    <input matInput [ngModel]="device?.hostName" (change)="device.hostName = $event.target.value" id="deviceEdit_hostName" placeholder="Hostname" [disabled]="inputEnabled ? null : true" />
   </mat-form-field>
   <mat-form-field>
-    <input matInput [ngModel]="device?.domainName" (ngModelChange)="device.domainName = $event" id="deviceEdit_domainName" placeholder="Domain Name"/>
+    <input matInput [ngModel]="device?.domainName" (change)="device.domainName = $event.target.value" id="deviceEdit_domainName" placeholder="Domain Name" [disabled]="inputEnabled ? null : true"/>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Administrative State</mat-label>
-    <select matNativeControl [ngModel]="device?.adminState" (ngModelChange)="device.adminState = $event" id="deviceEdit_adminState">
+    <select matNativeControl [ngModel]="device?.adminState" (change)="device.adminState = $event.target.value" id="deviceEdit_adminState" [disabled]="inputEnabled ? null : true">
       <option value="" selected></option>
       <option *ngFor="let state of AdminStateKeys()" [value]="state">{{state}}</option>
     </select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>IP Version Activated</mat-label>
-    <select matNativeControl [ngModel]="device?.ipVersionActivated" (ngModelChange)="device.ipVersionActivated = $event" id="deviceEdit_ipVersionActivated">
+    <select matNativeControl [ngModel]="device?.ipVersionActivated" (change)="device.ipVersionActivated = $event.target.value" id="deviceEdit_ipVersionActivated" [disabled]="inputEnabled ? null : true">
       <option value="" selected></option>
       <option *ngFor="let version of IPVersionKeys()" [value]="version">{{version}}</option>
     </select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>IP Version Supported</mat-label>
-    <select matNativeControl [ngModel]="device?.ipVersionSupported" (ngModelChange)="device.ipVersionSupported = $event" id="deviceEdit_ipVersionSupported">
+    <select matNativeControl [ngModel]="device?.ipVersionSupported" (change)="device.ipVersionSupported = $event.target.value" id="deviceEdit_ipVersionSupported" [disabled]="inputEnabled ? null : true">
       <option value="" selected></option>
       <option *ngFor="let version of IPVersionKeys()" [value]="version">{{version}}</option>
     </select>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [ngModel]="device?.routerCode" (ngModelChange)="device.routerCode = $event" id="deviceEdit_routerCode" placeholder="Router Code"/>
+    <input matInput [ngModel]="device?.routerCode" (change)="device.routerCode = $event.target.value" id="deviceEdit_routerCode" placeholder="Router Code" [disabled]="inputEnabled ? null : true"/>
   </mat-form-field>
-  <mat-checkbox [ngModel]="device?.qoS" (ngModelChange)="device.qoS = $event" id="deviceEdit_qoS">QoS Enabled</mat-checkbox>
+  <mat-checkbox [ngModel]="device?.qoS" (change)="device.qoS = $event.target.value" id="deviceEdit_qoS" [disabled]="inputEnabled ? null : true">QoS Enabled</mat-checkbox>
   <mat-form-field>
-    <textarea matNativeControl [ngModel]="device?.comment" (ngModelChange)="device.comment = $event" id="deviceEdit_comment" placeholder="Comment" style="height: 100px;"></textarea>
+    <textarea matNativeControl [ngModel]="device?.comment" (change)="device.comment = $event.target.value" id="deviceEdit_comment" placeholder="Comment" style="height: 100px;" [disabled]="inputEnabled ? null : true"></textarea>
   </mat-form-field>
 </div>
 <div gdAuto="column" >
   <div fxLayoutAlign="end center">
-    <button  mat-raised-button color="primary" (click)="saveDevice()" id="deviceEdit_save">
+    <button  mat-raised-button color="primary" (click)="saveDevice()" id="deviceEdit_save" [disabled]="inputEnabled ? null : true">
       Save
     </button>
     <div fxFlex></div>
-    <button  mat-raised-button (click)="clearDevice()" id="deviceEdit_cancel">
+    <button  mat-raised-button (click)="clearDevice()" id="deviceEdit_cancel" [disabled]="inputEnabled ? null : true">
       Cancel
     </button>
   </div>

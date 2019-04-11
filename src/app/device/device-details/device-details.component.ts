@@ -33,22 +33,18 @@ export class DeviceDetailsComponent implements OnInit {
     return Object.keys(AdministrativeState);
   }
 
-  enableInput() : void {
-    this.inputEnabled = true;
-  }
-
-  disableInput() : void {
-    this.inputEnabled = false;
+  getInputEnabled() : any {
+    return (device && this.inputEnabled) ? null : true;
   }
 
   setDevice(device: Device) : void {
     this.device = device;
-    this.enableInput();
+    this.inputEnabled = true;
   }
 
   clearDevice() : void {
     this.deviceService.unselectDevice();
-    this.disableInput();
+    this.inputEnabled = false;
   }
 
   saveDevice() : void {

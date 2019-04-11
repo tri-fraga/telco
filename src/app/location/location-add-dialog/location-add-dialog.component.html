@@ -2,16 +2,16 @@
 <div mat-dialog-content>
   <div class="dialog-fields" fxLayout="column">
     <mat-form-field>
-      <input matInput [(ngModel)]="location.locationId" id="locationAdd_locationId" placeholder="Location Id" required>
+      <input matInput [(ngModel)]="location.locationId" (change)="location.locationId = $event.target.value" id="locationAdd_locationId" placeholder="Location Id" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="location.address" id="locationAdd_address" placeholder="Location Address" required>
+      <input matInput [(ngModel)]="location.address" (change)="location.address = $event.target.value" id="locationAdd_address" placeholder="Location Address" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="location.contactPhone" id="locationAdd_contactPhone" placeholder="Contact Phone" required>
+      <input matInput [(ngModel)]="location.contactPhone" (change)="location.contactPhone = $event.target.value" id="locationAdd_contactPhone" placeholder="Contact Phone" required>
     </mat-form-field>
     <mat-form-field>
-      <textarea matNativeControl [(ngModel)]="location.comment" id="locationAdd_comment" placeholder="Comment"></textarea>
+      <textarea matNativeControl [(ngModel)]="location.comment" (change)="location.comment = $event.target.value" id="locationAdd_comment" placeholder="Comment"></textarea>
     </mat-form-field>
   </div>
 </div>

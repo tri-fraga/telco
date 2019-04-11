@@ -43,7 +43,7 @@ export class DeviceService {
   }
 
   public unselectDevice() : void {
-    this.selectedDeviceSource.next(new Device());
+    this.selectedDeviceSource.next(null);
     this.log(`Unselected device`);
   }
 
@@ -121,6 +121,8 @@ export class DeviceService {
   public deleteDevice(device: Device | number) : Observable<Device> {
     const id = typeof device === 'number' ? device : device.id;
     const url = `${this.deviceUrl}/${id}`;
+
+    this.unselectDevice();
 
     return this.http.delete<Device>(url, this.httpOptions).pipe(
       tap(_ => {

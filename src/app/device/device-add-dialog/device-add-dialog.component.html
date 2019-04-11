@@ -2,23 +2,23 @@
 <div mat-dialog-content>
   <div class="dialog-fields" fxLayout="column">
     <mat-form-field>
-      <input matInput [(ngModel)]="device.deviceId" id="deviceAdd_deviceId" placeholder="Device Id" required>
+      <input matInput [(ngModel)]="device.deviceId" (change)="device.deviceId = $event.target.value" id="deviceAdd_deviceId" placeholder="Device Id" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="device.deviceType" id="deviceAdd_deviceType" placeholder="Device Type" required>
+      <input matInput [(ngModel)]="device.deviceType" (change)="device.deviceType = $event.target.value" id="deviceAdd_deviceType" placeholder="Device Type" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="device.deviceNumber" id="deviceAdd_deviceNumber" placeholder="Device Number" required>
+      <input matInput [(ngModel)]="device.deviceNumber" (change)="device.deviceNumber = $event.target.value" id="deviceAdd_deviceNumber" placeholder="Device Number" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="device.hostName" id="deviceAdd_hostName" placeholder="Hostname"/>
+      <input matInput [(ngModel)]="device.hostName" (change)="device.hostName = $event.target.value" id="deviceAdd_hostName" placeholder="Hostname"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="device.domainName" id="deviceAdd_domainName" placeholder="Domain Name"/>
+      <input matInput [(ngModel)]="device.domainName" (change)="device.domainName = $event.target.value" id="deviceAdd_domainName" placeholder="Domain Name"/>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Administrative State</mat-label>
-      <select matNativeControl [(ngModel)]="device.adminState" id="deviceAdd_adminState">
+      <select matNativeControl [(ngModel)]="device.adminState" (change)="device.adminState = $event.target.value" id="deviceAdd_adminState">
         <option *ngFor="let state of AdminStateKeys()" [value]="state">{{state}}</option>
       </select>
     </mat-form-field>
