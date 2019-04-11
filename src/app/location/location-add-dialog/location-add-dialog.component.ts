@@ -10,8 +10,7 @@ import { Location } from '../model/location';
 })
 export class LocationAddDialogComponent implements OnInit {
 
-  location: Location;
-  //@Inject(MAT_DIALOG_DATA) public data: DialogData
+  public location: Location;
 
   constructor(public dialogRef: MatDialogRef<LocationAddDialogComponent>) {
     this.location = new Location();

@@ -5,19 +5,23 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
-  messages: string[] = [];
+  private messages: string[] = [];
 
-  snackMessage: string;
+  private snackMessage: string;
   private snackMessageSource = new Subject<string>();
-  snackMessage$ = this.snackMessageSource.asObservable();
+  public snackMessage$ = this.snackMessageSource.asObservable();
 
   add(message: string) : void {
     this.messages.unshift(this.getDate() + message);
   }
-  
+
   show(message: string) : void {
     this.snackMessage = message;
     this.snackMessageSource.next(this.snackMessage);
+  }
+
+  getAll() : string[] {
+    return this.messages;
   }
 
   clear() {

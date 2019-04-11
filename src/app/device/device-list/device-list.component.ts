@@ -17,9 +17,10 @@ import { DeviceService } from '../device.service';
 })
 
 export class DeviceListComponent implements OnInit {
-  displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'locationId', 'actions'];
-  dataSource: DeviceDataSource;
-  selectedDevice: Device;
+
+  public displayedColumns: string[] = ['deviceId', 'deviceType', 'deviceNumber', 'hostName', 'domainName', 'adminState', 'locationId', 'actions'];
+  public dataSource: DeviceDataSource;
+  public selectedDevice: Device;
 
   constructor(private deviceService : DeviceService, private dialog : MatDialog) {
     this.dataSource = new DeviceDataSource(deviceService);

@@ -11,8 +11,9 @@ import { LocationService } from '../location.service';
 })
 export class LocationSearchDialogComponent implements OnInit {
 
-  selectedLocation: Location;
-  availableLocations: Location[];
+  public selectedLocation: Location;
+  public availableLocations: Location[];
+  public currentLocationInput: string;
 
   constructor(private locationService : LocationService, public dialogRef: MatDialogRef<LocationSearchDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any)

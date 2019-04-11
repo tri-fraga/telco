@@ -14,8 +14,8 @@ import { LocationService } from '../location/location.service';
 })
 export class DashboardComponent implements OnInit {
 
-  private deviceCount: number;
-  private locationCount: number;
+  public deviceCount: number;
+  public locationCount: number;
 
   constructor(
     private titleService: Title,

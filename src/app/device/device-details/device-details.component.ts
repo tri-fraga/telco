@@ -13,8 +13,8 @@ import { DeviceService } from '../device.service';
 
 export class DeviceDetailsComponent implements OnInit {
 
-  private device: Device;
-  private inputEnabled: boolean;
+  public device: Device;
+  public inputEnabled: boolean;
 
   constructor(private deviceService : DeviceService) {
     this.inputEnabled = false;
@@ -34,7 +34,7 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   getInputEnabled() : any {
-    return (device && this.inputEnabled) ? null : true;
+    return (this.device && this.inputEnabled) ? null : true;
   }
 
   setDevice(device: Device) : void {

@@ -12,7 +12,7 @@ import { Device } from '../model/device';
 
 export class DeviceAddDialogComponent implements OnInit {
 
-  device: Device;
+  public device: Device;
   //@Inject(MAT_DIALOG_DATA) public data: DialogData
   constructor(public dialogRef: MatDialogRef<DeviceAddDialogComponent>) { }
 

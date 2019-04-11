@@ -10,9 +10,17 @@ import { MessageService } from '../services/message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(private messageService: MessageService,
+  constructor(public messageService: MessageService,
     private bottomSheetRef: MatBottomSheetRef<MessagesComponent>) {
 
+  }
+
+  hasMessages() : number {
+    return this.messageService.getAll().length;
+  }
+
+  getMessages() : string[] {
+    return this.messageService.getAll();
   }
 
   clearMessages(event: MouseEvent): void {
